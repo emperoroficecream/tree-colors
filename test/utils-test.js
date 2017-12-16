@@ -21,7 +21,7 @@ test('`getMidVal` returns the middle value of a range: case 2', t => {
 
 test('`getMidVal` returns the middle value of a range: case 3', t => {
   const range = [1, 2];
-  t.is(1, u.getMidVal(range));
+  t.is(1.5, u.getMidVal(range));
 });
 
 test('`getMidVal` throws an error when passed in a range of `[max, min]`', t => {
@@ -37,15 +37,15 @@ test('has a function `partition`', t => {
 });
 
 test('`partition` partitions a range into n parts of almost equal size: case 1', t => {
-  t.deepEqual([[1, 2], [3, 4]], u.partition([1, 4], 2));
+  t.deepEqual([[0, 2], [2.1, 4]], u.partition([0, 4], 2));
 });
 
 test('`partition` partitions a range into n parts of almost equal size: case 2', t => {
-  t.deepEqual([[1, 3], [4, 6]], u.partition([1, 6], 2));
+  t.deepEqual([[0, 3], [3.1, 6]], u.partition([0, 6], 2));
 });
 
 test('`partition` partitions a range into n parts of almost equal size: case 3', t => {
-  t.deepEqual([[1, 3], [4, 5]], u.partition([1, 5], 2));
+  t.deepEqual([[0, 2.5], [2.6, 5]], u.partition([0, 5], 2));
 });
 
 test('has a function `getMidFraction`', t => {
@@ -53,9 +53,9 @@ test('has a function `getMidFraction`', t => {
 });
 
 test('`getMidFraction` returns a middle range of given fraction from the original range: case 1', t => {
-  t.deepEqual([5, 6], u.getMidFraction([1, 10], 0.2));
+  t.deepEqual([4.05, 5.95], u.getMidFraction([0, 10], 0.2));
 });
 
 test('`getMidFraction` returns a middle range of given fraction from the original range: case 2', t => {
-  t.deepEqual([4, 6], u.getMidFraction([0, 10], 0.3));
+  t.deepEqual([3.55, 6.45], u.getMidFraction([0, 10], 0.3));
 });
